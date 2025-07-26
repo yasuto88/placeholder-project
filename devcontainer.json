@@ -6,16 +6,9 @@
             "repositories": {
                 // ★ ここに追加で使いたいリポジトリを列挙
                 "nelhq/croutons-frontend": {
-                    "permissions": {
-                        "contents": "write",
-                        "pull_requests": "write"
-                    }
-                },
+                    "permissions": "write-all",
                 "nelhq/croutons-server": {
-                    "permissions": {
-                        "contents": "write",
-                        "pull_requests": "write"
-                    }
+                    "permissions": "write-all"
                 }
             }
         }
