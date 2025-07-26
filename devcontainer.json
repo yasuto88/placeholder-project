@@ -7,8 +7,9 @@
                 // ★ ここに追加で使いたいリポジトリを列挙
                 "nelhq/croutons-frontend": {
                     "permissions": "write-all",
-                "nelhq/croutons-server": {
-                    "permissions": "write-all"
+                    "nelhq/croutons-server": {
+                        "permissions": "write-all"
+                    }
                 }
             }
         }
