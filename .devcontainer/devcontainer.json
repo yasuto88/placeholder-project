@@ -1,0 +1,23 @@
+{
+    // 既存で devcontainer を使っていない場合の最小構成
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                // ★ ここに追加で使いたいリポジトリを列挙
+                "nelhq/croutons-frontend": {
+                    "permissions": {
+                        "contents": "write",
+                        "pull_requests": "write"
+                    }
+                },
+                "nelhq/croutons-server": {
+                    "permissions": {
+                        "contents": "write",
+                        "pull_requests": "write"
+                    }
+                }
+            }
+        }
+    }
+}

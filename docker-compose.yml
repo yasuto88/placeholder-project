@@ -1,0 +1,41 @@
+services:
+  web:
+    platform: linux/x86_64
+    build: ./croutons-server      # ← ../ を ./ に変更
+    ports:
+      - "4001:4001"
+    environment:
+      - "RAILS_ENV=development"
+    command:
+      ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "4001"]
+    tty: true
+    stdin_open: true
+    volumes:
+      - ./croutons-server:/app    # ← ここも ./ に変更
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    platform: linux/x86_64
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: app
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: osina_local
+      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_TCP_PORT: 33306
+    restart: always
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+      - ./mysqld:/var/run/mysqld
+      - ./my.cnf:/etc/mysql/conf.d/my.cnf
+    privileged: true
+    hostname: mysql
+    healthcheck:
+      test:
+        ["CMD-SHELL", "mysqladmin ping -h mysql -u app -p$$MYSQL_ROOT_PASSWORD"]
+      interval: 10s
+      retries: 10
