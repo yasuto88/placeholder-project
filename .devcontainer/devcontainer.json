@@ -1,21 +1,4 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/universal:2",
-    "customizations": {
-        "codespaces": {
-            "repositories": {
-                "nelhq/croutons-frontend": {
-                    "permissions": {
-                        "contents": "write", // 必要なら "write" でも可
-                        "pull_requests": "write"
-                    }
-                },
-                "nelhq/croutons-server": {
-                    "permissions": {
-                        "contents": "write",
-                        "pull_requests": "write"
-                    }
-                }
-            }
-        }
-    }
+    "name": "default-minimal",
+    "image": "mcr.microsoft.com/devcontainers/universal:2"
 }

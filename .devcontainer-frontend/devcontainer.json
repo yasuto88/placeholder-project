@@ -1,0 +1,28 @@
+{
+    "name": "croutons-frontend-env",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/croutons-docker/croutons-frontend",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "20"
+        }
+    },
+    "postCreateCommand": "npm install",
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "nelhq/croutons-server": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                }
+            }
+        },
+        "vscode": {
+            "extensions": [
+                "esbenp.prettier-vscode",
+                "dbaeumer.vscode-eslint"
+            ]
+        }
+    }
+}

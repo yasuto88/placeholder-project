@@ -1,0 +1,28 @@
+{
+    "name": "croutons-server-env",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/croutons-docker/croutons-server",
+    "image": "mcr.microsoft.com/devcontainers/ruby:3.3-bookworm",
+    "features": {
+        "ghcr.io/devcontainers/features/ruby:1": {
+            "version": "3.3"
+        }
+    },
+    "postCreateCommand": "bundle install",
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "nelhq/croutons-frontend": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                }
+            }
+        },
+        "vscode": {
+            "extensions": [
+                "rebornix.ruby",
+                "castwide.solargraph"
+            ]
+        }
+    }
+}

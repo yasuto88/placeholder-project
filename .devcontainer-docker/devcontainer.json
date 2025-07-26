@@ -1,0 +1,32 @@
+{
+    "name": "croutons-docker-env",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/croutons-docker",
+    "image": "mcr.microsoft.com/devcontainers/universal:2",
+    // Docker in Docker を使う場合
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    },
+    "postCreateCommand": "make up", // 初回起動でコンテナ一式を立ち上げる
+    "customizations": {
+        "codespaces": {
+            "repositories": {
+                "nelhq/croutons-frontend": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                },
+                "nelhq/croutons-server": {
+                    "permissions": {
+                        "contents": "read"
+                    }
+                }
+            }
+        },
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "rebornix.ruby"
+            ]
+        }
+    }
+}
